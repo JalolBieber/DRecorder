@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent" android:layout_height="104dp">
 
-</android.support.constraint.ConstraintLayout>
+
+    <FrameLayout
+            android:id="@+id/cardView"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+    >
+
+        <android.support.constraint.ConstraintLayout
+                android:id="@+id/layoutBackground"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bc_item_big"
+        >
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </FrameLayout>
+
+
+</FrameLayout>

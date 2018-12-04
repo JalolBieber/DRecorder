@@ -3,6 +3,7 @@ package jeybi.me.drecorder
 import android.content.Context
 import android.graphics.Color
 import android.media.Image
+import android.support.constraint.ConstraintLayout
 import android.support.design.card.MaterialCardView
 import android.support.v7.widget.RecyclerView
 import android.text.Layout
@@ -14,38 +15,44 @@ import android.widget.ImageView
 import android.widget.TextView
 import java.text.FieldPosition
 
-class VideosAdapter(val context: Context, val videos: ArrayList<RecordedVideo>) :
+class VideosAdapter(val context: Context) :
     RecyclerView.Adapter<VideosAdapter.VideoHolder>() {
 
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): VideoHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_big, viewGroup, false)
+    override fun getItemViewType(position: Int): Int {
+        return if (position == 0)
+            0
+        else
+            1
+    }
 
-        return VideoHolder(view)
+    override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): VideoHolder {
+
+        val view: View? = if (position == 0)
+            LayoutInflater.from(context).inflate(R.layout.item_big, viewGroup, false)
+        else
+            LayoutInflater.from(context).inflate(R.layout.item_small, viewGroup, false)
+
+        return VideoHolder(view!!)
     }
 
     override fun getItemCount(): Int {
-        return videos.size
+        return 10
     }
 
     override fun onBindViewHolder(holder: VideoHolder, position: Int) {
-        val video = videos[position]
 
-        holder.textViewTitle.text = video.title
-        holder.textViewPath.text = video.path
-
-        when(position % 2){
-            0->holder.cardView.setCardBackgroundColor(Color.parseColor("#EB3F57"))
-            1-> holder.cardView.setCardBackgroundColor(Color.parseColor("#6459FB"))
+        if (position != 0) when (position % 4) {
+            0 -> holder.backgroundLayout.setBackgroundResource(R.drawable.bc_child_4)
+            1 -> holder.backgroundLayout.setBackgroundResource(R.drawable.bc_child_1)
+            2 -> holder.backgroundLayout.setBackgroundResource(R.drawable.bc_child_2)
+            3 -> holder.backgroundLayout.setBackgroundResource(R.drawable.bc_child_3)
         }
-
     }
 
 
     class VideoHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val textViewTitle = view.findViewById<TextView>(R.id.textViewTitle)
-        val textViewPath = view.findViewById<TextView>(R.id.textViewPath)
-        val cardView = view.findViewById<MaterialCardView>(R.id.cardView)
+        val backgroundLayout = view.findViewById<ConstraintLayout>(R.id.layoutBackground)!!
     }
 
 

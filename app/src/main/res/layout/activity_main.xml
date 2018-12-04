@@ -49,6 +49,56 @@
             android:layout_marginTop="8dp"
     />
 
+    <android.support.v7.widget.RecyclerView
+            android:paddingTop="64dp"
+            android:clipToPadding="false"
+            android:id="@+id/recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bottomLayout"
+            android:paddingBottom="24dp"
+    >
+
+
+    </android.support.v7.widget.RecyclerView>
+
+
+    <View android:layout_width="0dp" android:layout_height="0.3dp"
+          android:alpha="0.4"
+          android:background="@color/white"
+          app:layout_constraintLeft_toLeftOf="parent"
+          app:layout_constraintRight_toRightOf="parent"
+          app:layout_constraintBottom_toTopOf="@id/bottomLayout"
+          android:layout_marginBottom="2dp"
+
+    />
+
+
+    <LinearLayout
+            android:id="@+id/layoutSettings"
+            android:layout_width="162dp" android:layout_height="202dp"
+            android:background="@drawable/bc_settings"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bottomLayout"
+            android:layout_marginBottom="4dp"
+            android:layout_marginRight="8dp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+    >
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:textColor="@color/white"
+                  android:textSize="14sp"
+                  android:text="SETTINGS"
+                  android:fontFamily="@font/montserrat_bold"
+                  android:layout_marginTop="16dp"
+        />
+
+    </LinearLayout>
+
 
     <LinearLayout
             android:id="@+id/bottomLayout"
@@ -58,6 +108,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:orientation="horizontal"
+            android:background="@color/colorPrimary"
     >
 
 
@@ -96,6 +147,7 @@
 
 
         <LinearLayout
+                android:id="@+id/bottomRight"
                 android:clickable="true"
                 android:background="?attr/selectableItemBackground"
                 android:layout_marginLeft="28dp"
@@ -145,15 +197,6 @@
             app:backgroundTint="#6A4EDE"
     />
 
-    <View android:layout_width="0dp" android:layout_height="0.3dp"
-          android:alpha="0.4"
-          android:background="@color/white"
-          app:layout_constraintLeft_toLeftOf="parent"
-          app:layout_constraintRight_toRightOf="parent"
-          app:layout_constraintBottom_toTopOf="@id/bottomLayout"
-          android:layout_marginBottom="2dp"
-
-    />
 
     <ImageView
             app:layout_constraintLeft_toLeftOf="@id/floatingActionButton"
@@ -166,23 +209,6 @@
             android:src="@drawable/ic_videocamera"
 
     />
-
-    <android.support.v7.widget.RecyclerView
-            android:paddingTop="64dp"
-            android:clipToPadding="false"
-            android:id="@+id/recyclerView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/bottomLayout"
-    >
-
-
-    </android.support.v7.widget.RecyclerView>
-
-
 
 
 </android.support.constraint.ConstraintLayout>
